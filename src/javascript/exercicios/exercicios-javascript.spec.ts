@@ -1,4 +1,4 @@
-import { elevarAoQuadrado, somaNumeros, somentePares } from "./exercicios-javascript";
+import { determinateLearningMorePriority, elevarAoQuadrado, LevelCodeEntity, somaNumeros, somentePares } from "./exercicios-javascript";
 
 describe("Exercicios Javascript", () => {
 
@@ -25,4 +25,53 @@ describe("Exercicios Javascript", () => {
             expect(elevarAoQuadrado(input)).toEqual(result);
         })
     });
+    describe("qual é o learning more ? respeitando a prioridade", () => {
+        // Prioridade >> "spboost" | "podcast" | "eyoung" | "paginab2c" | null
+        it("Deve retornar o item correto do learning more, baseado na prioridade estabelecida", () => {
+            const levelCodes: LevelCodeEntity[] = [
+                {
+                    learningMore: "paginab2c"
+                },
+                {
+                    learningMore: "paginab2c"
+                },
+                {
+                    learningMore: "podcast"
+                },
+                {
+                    learningMore: "spboost"
+                }
+            ]
+            expect(determinateLearningMorePriority(levelCodes)).toEqual("spboost")
+        })
+        it("Deve retornar o item correto do learning more, baseado na prioridade estabelecida", () => {
+            const levelCodes: LevelCodeEntity[] = [
+                {
+                    learningMore: "paginab2c"
+                },
+                {
+                    learningMore: "podcast"
+                },
+                {
+                    learningMore: "paginab2c"
+                }
+            ]
+            expect(determinateLearningMorePriority(levelCodes)).toEqual("podcast")
+        })
+
+        it("Deve retornar o item correto do learning more, baseado na prioridade estabelecida", () => {
+            const levelCodes: LevelCodeEntity[] = [
+                {
+                    learningMore: null
+                },
+                {
+                    learningMore: null
+                },
+                {
+                    learningMore: null
+                }
+            ]
+            expect(determinateLearningMorePriority(levelCodes)).toEqual(null)
+        })
+    })
 })

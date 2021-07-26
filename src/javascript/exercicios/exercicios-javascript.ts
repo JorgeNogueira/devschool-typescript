@@ -30,4 +30,26 @@ export function elevarAoQuadrado(numeros: number[]): number[] {
     return numeros.map(x => x * x);
 }
 
+
+export interface LevelCodeEntity {
+    id?: number;
+    code?: string;
+    description?: string | null;
+    active?: boolean;
+    createdAt?: string;
+    levelId?: number | null;
+    learningMore: "paginab2c" | "eyoung" | "spboost" | "podcast" | null;
+}
+
+
+// Prioridade "spboost" | "podcast" | "eyoung" | "paginab2c" | null
+/**
+ * Complete a função para retornar o learningMore baseado na prioridade
+ * Prioridade "spboost" | "podcast" | "eyoung" | "paginab2c" | null
+ * @param levelCode: LevelCodeEntity[] 
+ */
+export function determinateLearningMorePriority(levelCode: LevelCodeEntity[]): "spboost" | "podcast" | "eyoung" | "paginab2c" | null {
+
+}
+
 console.log(elevarAoQuadrado([1, 2, 3, 4]));
